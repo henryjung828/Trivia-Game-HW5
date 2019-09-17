@@ -154,13 +154,13 @@ timerRunning: function() {
     },
     guessResult: function() {
 
-    
+        trivia.currentSet++;
 
+        $('#results h3').remove();
 
+        $('.option').remove();
 
-
-
-
-    } 
+        trivia.nextQuestion();
+        } 
 
 }
