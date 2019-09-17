@@ -54,4 +54,32 @@ var questionTracker = 0;
 var timer;
 var time = 20;
 
+var submitBtn = $("<button>").attr('class', 'submit-btn').attr('type', 'submit');
+
+submitBtn.text('Submit Answer');
+
+$('.start').on('click', function(){
+    $('.start').attr('class', 'hidden')
+
+    $('.question-div').removeClass('hidden');
+
+    startGame();
+
+})
+$(document).on('click', '.submit=btn', function(event){
+    event.preventDefault();
+    $('question-div').addClass('hidden');
+    checkAnswer();
+})
+
+function checkAnswer(){
+    if(userAnswer === "true"){
+
+    }
+
+
+}
+
+
+
 
