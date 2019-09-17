@@ -60,4 +60,78 @@ var trivia = {
 },
 
 
+nextQuestion: function() {
+trivia.timer = 20;
+    $('#timer')
+        .removeClass('last-seconds');
+    $('#timer')
+        .text(trivia.timer);
 
+
+    var questionContent = Object.values(trivia.questions)
+    [trivia.currentSet];
+   
+   
+    $('#question')
+        .text(questionContent);
+
+    var questionOptions = Object.values(trivia.options)
+    [trivia.currentSet];
+
+$.each(questionOptions, function(index, key) {
+    $('#options')
+        .append($('<button class="option btn btn-info btn-lg">' + key + '</button>'));
+})
+},
+
+timerRunning: function() {
+    if (trivia.timer > -1 && trivia.currentSet < Object.keys(trivia.questions)
+            .length) {
+            $('#timer')
+                .text(trivia.timer);
+            trivia.timer--;
+            if (trivia.timer === 5) {
+                $('#timer')
+                    .addClass('last-seconds');
+            }
+        } else if (trivia.timer === -1) {
+            trivia.notAnswered++;
+            trivia.result = false;
+            clearInterval(trivia.timerId);
+            resultId = setTimeout(trivia.guessResult, 1000);
+            $('#results')
+                .html('<h3>Timeout! The answer was ' + Object.values(trivia.answers)[trivia.currentSet] + '</h3>');
+        } else if (trivia.currentSet === Object.keys(trivia.questions)
+        .length) {
+            $('#results')
+                .html('<h3>Your an NBA All-Star!</h3>' +
+                    '<p>Correct: ' + trivia.correct + '</p>' +
+                    '<p>Incorrect: ' + trivia.incorrect + '</p>' +
+                    '<p>notAnswered: ' + trivia.notAnswered + '</p>' +
+                    '<p>Please play again!</p>');
+            
+            $('#game')
+            .hide();
+
+            $('#start')
+            .show();
+
+    }},
+
+    guessChecker: function() {
+
+
+    },
+
+    
+
+
+
+
+
+
+
+
+
+
+    }
