@@ -31,4 +31,33 @@ var trivia = {
     
     },
     
-}
+
+    startGame: function() {
+        trivia.currentSet = 0;
+        trivia.correct = 0;
+        trivia.incorrect = 0;
+        trivia.notAnswered = 0;
+        clearInterval(trivia.timerId);
+
+       
+    $('#game')
+    .show();
+
+    $('#remaining-time')
+    .show();
+
+    $('#results')
+    .html('');
+
+    $('#timer')
+    .text(trivia.timer);
+
+    $('#start')
+    .hide();
+
+    trivia.nextQuestion();
+
+},
+
+
+
