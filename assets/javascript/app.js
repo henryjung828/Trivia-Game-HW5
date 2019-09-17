@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     
     
-    $("time-remaining").hide();
+    $("time-remaining").show();
     $("#start").on('click', trivia.startGame);
     $(document).on('click', '.option', trivia.guessChecker);
 
@@ -14,7 +14,7 @@ var trivia = {
     incorrect: 0,
     notAnswered: 0,
     currentSet: 0,
-    timer: 15,
+    timer: 10,
     timerOn: false,
     timerId: '',
 
@@ -77,7 +77,7 @@ var trivia = {
 
 
 nextQuestion: function() {
-trivia.timer = 15;
+trivia.timer = 10;
     $('#timer')
         .removeClass('last-seconds');
     $('#timer')
@@ -168,9 +168,6 @@ timerRunning: function() {
         trivia.currentSet++;
         $('.option').remove();
         $('#results h3').remove();
-
-        
-
         trivia.nextQuestion();
         } 
 
