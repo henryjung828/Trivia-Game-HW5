@@ -1,0 +1,14 @@
+body{
+	background-image: url(https://wallpaperplay.com/walls/full/0/5/d/109608.jpg#.XYBMkMnd-iQ.link);
+	text-align: center;
+}
+
+.text-muted{
+	color: blue;
+}
+.last-seconds{
+  color: red;
+}
+.option{
+  margin: 20px;
+}
