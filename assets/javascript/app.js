@@ -116,12 +116,43 @@ timerRunning: function() {
             $('#start')
             .show();
 
-    }},
+    }
+},
 
     guessChecker: function() {
+        var resultId;
+        var currentAnswer = Object.values(triia.answers)[trivia.currentSet];
 
+        if ($(this).text() === currentAnswer){
+        $(this).addClass('btn-success').removeClass('btn-info');
+        trivia.correct++;
+        
+        clearInterval(trivia.timerId);
+       
+        resultId = setTimeout(trivia.guessResult, 1000);
+       
+        $('#results').html('<h3>Gotem Coach</h3>');
+    }
+
+            else {
+                $(this)
+                .addClass('btn-danger')
+                .removeClass('btn-info');
+
+            trivia.incorrect++;
+            
+            clearInterval(trivia.timerId);
+            
+            resultId = setTimeout(trivia.guessResult, 1000);
+            
+            $('#results').html('<h3>Get some more practice! ' + currentAnswer + '</h3>');
+
+
+
+            }
 
     },
+    guessResult: function() {
 
     
 
@@ -130,8 +161,6 @@ timerRunning: function() {
 
 
 
+    } 
 
-
-
-
-    }
+}
