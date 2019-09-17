@@ -1,85 +1,34 @@
 $(document).ready(function(){
-    var questions = [
-{
-    questionsNumber1: 1,
-    questionText: "T/F - Giannis Antekeumpo is the MVP of 2019 NBA Season?",
-        answers: [{
-            answerNumber: 1,
-            answerText: 'True',
-            answersCorrect: True
-    },
-    {
-        answerNumber: 2,
-            answerText: 'False',
-            answerCorrect: False
-            },
-                    ],
-    
-    questionsNumber2: 2,
-    questionText: "T/F - Golden State Warriors are the 2019 NBA Champions?",
-        answers: [{
-            answerNumber: 2,
-            answerText: 'True',
-            answersCorrect: False
-    },
-    {
-        answerNumber: 2,
-            answerText: 'False',
-            answerCorrect: True
-            },
-                    ],
-    
-    questionsNumber3: 3,
-    questionText: "T/F - Kawaii Leneaord was Finals MVP?",
-        answers: [{
-            answerNumber: 3,
-            answerText: 'True',
-            answersCorrect: True
-    },
-    {
-        answerNumber: 3,
-            answerText: 'False',
-            answerCorrect: False
-        },
-                ],
 
-}]}
-
-)
-
-var userAnswer;
-var numCorrect = 0;
-var numQuestions = questions.length;
-var questionTracker = 0;
-var timer;
-var time = 20;
-
-var submitBtn = $("<button>").attr('class', 'submit-btn').attr('type', 'submit');
-
-submitBtn.text('Submit Answer');
-
-$('.start').on('click', function(){
-    $('.start').attr('class', 'hidden')
-
-    $('.question-div').removeClass('hidden');
-
-    startGame();
+    $("#start").on('click', nbatrivia.startGame);
+    $("time-remaining").hide();
+    $(docuemnt).on('click', '.option', trivia.guessChecker);
 
 })
-$(document).on('click', '.submit=btn', function(event){
-    event.preventDefault();
-    $('question-div').addClass('hidden');
-    checkAnswer();
-})
 
-function checkAnswer(){
-    if(userAnswer === "true"){
+var trivia = {
+ 
+    correct: 0,
+    incorrect: 0,
+    notAnswered: 0,
+    currentSet: 0,
+    timer: 20,
+    timerOn: false,
+    timerId: '',
 
-    }
+    questions: {
+        q1: "T/F - Giannis Antekeumpo is the MVP of 2019 NBA Season?",
+        q2: "T/F - Golden State Warriors are the 2019 NBA Champions?",
+        q3: "T/F - Kawaii Leneaord was Finals MVP?"
+       
+    },
 
-
+    answers: {
+        q1: True,
+        q2: False,
+        q3: True,
+        q4: True,
+    
+    },
+    
 }
-
-
-
-

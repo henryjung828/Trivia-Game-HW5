@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+    <meta name="description" content="">
+    <meta name="author" content="">
+   
     <title>Trivia Game</title>
    
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
@@ -14,28 +18,33 @@
 
 </head>
 <body>
-        <div class="jumbotron">
-                <h1 class="display-4">Trivia Game</h1>
-                <p class="lead">----</p>
-                <hr class="my-4">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa laboriosam exercitationem quod, quaerat quibusdam, obcaecati voluptas libero voluptatibus velit perspiciatis dolores temporibus sunt adipisci sit sapiente accusamus asperiores quis dolorum?</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Start</a>
-              </div>
-              <div class="timer">
-
-    
-              </div>
-        <div class="question-hidden">
-            <div id="question-box">
-
+        <div class="container">
+                <div class="header text-center clearfix">
+                   <h1 class="text-muted">NBA Trivia</h1>
+                </div>
+                <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                           <div id="game">
+                <h2>NBA Trivia</h2>
+                <p id="remaining-time" class="lead">Remaining Time: <span id="timer"></span></p>
+               <p id="question" class="lead"></p>
             </div>
-        </div>
+            <div id="results">
+            </div>
+         </div>
+         <div class="row">
+                <div id="choices" class="text-center">
+                   <button id="start" class="btn btn-info btn-lg">Start Game</button>
+                   <div id="options">
+    
+                   </div>
+    
+                </div>
+             </div>
+    
 
-        <div class="results-hidden">
-
-        </div>
-
-        <script src="assets/javascript/app.js"></script> 
+    <script src="assets/javascript/app.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     
 </body>
